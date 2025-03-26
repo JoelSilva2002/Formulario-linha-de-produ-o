@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formulário de Linha de Produção</title>
+    <link rel="stylesheet" href="./styles.css">
+</head>
+<body>
+<div class="container">
+    <h1>Formulário de Linha de Produção</h1>
+    <form id="productionForm">
+        <!-- Seção de Acidentes -->
+        <fieldset>
+            <legend>Acidentes</legend>
+            <div id="accidents">
+                <div class="accident-entry">
+                    <label for="accidentSeverity">Gravidade:</label>
+                    <select id="accidentSeverity" name="accidentSeverity">
+                        <option value="leve">Leve</option>
+                        <option value="moderado">Moderado</option>
+                        <option value="grave">Grave</option>
+                    </select>
+                    <label for="accidentTime">Hora:</label>
+                    <input type="time" id="accidentTime" name="accidentTime">
+                    <label for="accidentCause">Causa:</label>
+                    <input type="text" id="accidentCause" name="accidentCause">
+                    <label for="accidentStatus">Status:</label>
+                    <select id="accidentStatus" name="accidentStatus">
+                        <option value="pendente">Pendente</option>
+                        <option value="resolvido">Resolvido</option>
+                    </select>
+                    <button type="button" onclick="removeEntry(this)">Remover</button>
+                </div>
+            </div>
+            <button type="button" onclick="addAccident()">Adicionar Acidente</button>
+        </fieldset>
+
+        <!-- Seção de Problemas de Qualidade -->
+        <fieldset>
+            <legend>Problemas de Qualidade</legend>
+            <div id="qualityIssues">
+                <div class="quality-entry">
+                    <label for="issueTime">Hora:</label>
+                    <input type="time" id="issueTime" name="issueTime">
+                    <label for="issueDescription">Descrição:</label>
+                    <input type="text" id="issueDescription" name="issueDescription">
+                    <label for="issueStatus">Status:</label>
+                    <select id="issueStatus" name="issueStatus">
+                        <option value="pendente">Pendente</option>
+                        <option value="resolvido">Resolvido</option>
+                    </select>
+                    <button type="button" onclick="removeEntry(this)">Remover</button>
+                </div>
+            </div>
+            <button type="button" onclick="addQualityIssue()">Adicionar Problema de Qualidade</button>
+        </fieldset>
+
+        <!-- Seção de Produção -->
+        <fieldset>
+            <legend>Produção</legend>
+            <label for="quantityProduced">Quantidade Produzida:</label>
+            <input type="number" id="quantityProduced" name="quantityProduced">
+            <label for="lineStops">Quantidade de Paradas da Linha:</label>
+            <input type="number" id="lineStops" name="lineStops">
+            <label for="operators">Operadores no Turno (separados por vírgula):</label>
+            <input type="text" id="operators" name="operators">
+            <label for="operatorCount">Quantidade de Operadores:</label>
+            <input type="number" id="operatorCount" name="operatorCount">
+        </fieldset>
+
+        <button type="submit">Enviar</button>
+    </form>
+    <div id="result"></div>
+</div>
+<script src="./script.js" defer></script>
+</body>
+</html>
